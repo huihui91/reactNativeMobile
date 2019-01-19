@@ -1,31 +1,24 @@
 
 
 import React, { Component } from 'react';
-import { Platform, View, StyleSheet, Text, Image } from 'react-native';
-import MainPage from "./js/page/mainPage.js";
-import { createStackNavigator, createAppContainer } from 'react-navigation';
+import { Platform, View, StyleSheet, Text, Image,Button } from 'react-native';
+import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 
-import TarBar from './js/component/TabBar.js'
-import LoginPage from './js/page/LoginPage.js'
-import RegPage from './js/page/RegPage.js'
-import FindAccountPage from './js/page/FindAccountPage.js'
 
-const RootRouter = createStackNavigator(
-{
-    "MainPage":{
-      screen: MainPage
+import TabNavigator from './planNavigate/TabNavigator/index.js'
+import LoginPage  from './js/page/LoginPage.js'
+
+const RootComponent = createSwitchNavigator({
+    "TabNavigator":{
+        screen: TabNavigator,
     },
-    TarBar,
-    LoginPage,
-    FindAccountPage
-
+    'login':{
+        screen: LoginPage
+    }
 },{
-    initialRouteName:'MainPage',
-    mode: 'card'
-}
-)
- 
+    initialRouteName:'login',
+     headerMode: 'float'
 
-const App = createAppContainer(RootRouter)
-export { App} ;
+})
+export default createAppContainer(RootComponent);
 
