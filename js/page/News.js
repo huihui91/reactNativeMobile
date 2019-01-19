@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native'
 
 export default class News extends Component {
-  consrtuctor(props) {
+  constructor(props) {
     super(props)
   }
   render() {
     return (
       <View>
-        News
+        <Text>News</Text>
       </View>
     )
   }

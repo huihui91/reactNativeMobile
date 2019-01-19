@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native'
 
 export default class Search extends Component {
-  consrtuctor(props) {
+  constructor(props) {
     super(props)
   }
   render() {
     return (
       <View>
-        Search
+        <Text>Search</Text>
       </View>
     )
   }
