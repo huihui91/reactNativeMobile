@@ -15,6 +15,6 @@ export default class My extends Component{
   _myBtn(){
     let dd= JSON.stringify(this.props)
     console.log(dd,'pppee')
-    this.props.navigation.navigate('Home')
+    this.props.navigation.navigate('AuthStack')
   }
 }

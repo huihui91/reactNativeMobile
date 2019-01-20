@@ -98,8 +98,9 @@ const TabBottomNav = createBottomTabNavigator({
 }
 )
 
-const TabBottom= createAppContainer(TabBottomNav);
-
+/* const TabBottom= createAppContainer(TabBottomNav); */
+export default TabBottomNav;
+/* 
 export default class TabNavigator extends Component{
   static navigationOptions = {
     headerMode:"none"
@@ -107,4 +108,4 @@ export default class TabNavigator extends Component{
   render(){
     return <TabBottom/>
   }
-}
+} */

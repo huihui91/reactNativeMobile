@@ -13,12 +13,14 @@ const Hometop=createMaterialTopTabNavigator({
     initialRouteName:'FindAccountPage'
 })
 
-const HomeTop= createAppContainer(Hometop);
-export default class Home extends Component {
+/* const HomeTop= createAppContainer(Hometop); */
+
+export default Hometop
+/* export default class Home extends Component {
   constructor(props) {
     super(props)
   }
   render() {
     return <HomeTop />
   }
-}
+} */

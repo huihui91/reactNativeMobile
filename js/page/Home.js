@@ -56,13 +56,14 @@ const RootStack = createStackNavigator(
   }
 );
 
-const AppContainer = createAppContainer(RootStack);
+/* const AppContainer = createAppContainer(RootStack); */
+export default RootStack;
 
-export default class Home extends Component{
+/* export default class Home extends Component{
   constructor(props) {
     super(props)
   }
   render(){
     return <AppContainer props={this.props} />
   }
-}
+} */
