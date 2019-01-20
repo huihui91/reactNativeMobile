@@ -1,13 +1,6 @@
 import React, { Component } from 'react';
 import { Text, Button,View, BackHandler, ToastAndroid, Platform } from 'react-native';
 
-import TarBar from '../component/TabBar.js'
-import LoginPage from './LoginPage.js'
-import RegPage from './RegPage.js'
-import FindAccountPage from './FindAccountPage.js'
-import My from './My.js'
-
-import { createAppContainer, createBottomTabNavigator } from 'react-navigation'
 
 class HomeScreen extends React.Component {
   render() {
@@ -31,26 +24,6 @@ class SettingsScreen extends React.Component {
     );
   }
 }
+export default HomeScreen
 
 
-const BottomNav = createBottomTabNavigator({
-  HomeScreen,
-  SettingsScreen,
-  My
-})
-
-const TabNavigator = createAppContainer(BottomNav);
-
-export default class MainPage extends Component{
-  constructor(props) {
-    super(props)
-  }
-  render(){
-    return(
-      <View style={{ flex: 1, justifyContent: 'flex-end'}}>
-        <TabNavigator></TabNavigator>
-      </View>
-    )
-  }
-
-}

@@ -63,9 +63,9 @@ const TabBottomNav = createBottomTabNavigator({
             style={{ color: tintColor }} />
         )
       }
-    )
-  }
-}, {
+      )
+    }
+  }, {
     initialRouteName: 'Home',//默认tab
     tabBarPosition: 'bottom',//tabBar位置
     backBehavior: 'none',
@@ -98,4 +98,13 @@ const TabBottomNav = createBottomTabNavigator({
 }
 )
 
-export default createAppContainer(TabBottomNav)
+const TabBottom= createAppContainer(TabBottomNav);
+
+export default class TabNavigator extends Component{
+  static navigationOptions = {
+    headerMode:"none"
+  };
+  render(){
+    return <TabBottom/>
+  }
+}
