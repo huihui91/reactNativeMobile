@@ -12,11 +12,10 @@ import LoginOut from './js/page/Login/LoginOut.js'
 import My from './js/page/My.js'
 
 const AppStack = createStackNavigator({
-    TabNavigator: TabNavigator
+    TabNavigator: TabNavigator,
 });
 
 const AuthStack = createStackNavigator({ LoginOut: LoginOut}); //登录
-const MyStatck = createStackNavigator({ My: My}); //登录
 
 
 
@@ -24,10 +23,10 @@ const RootComponent = createSwitchNavigator({
     AuthLoading,
     AppStack,
     AuthStack,
-    MyStatck
+    Sign
 
 },{
-    initialRouteName:'AuthLoading',
+    initialRouteName:'AppStack',
      headerMode: 'float'
 
 })

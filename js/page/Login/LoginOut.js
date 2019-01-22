@@ -12,7 +12,7 @@ export default class LoginOut extends Component {
   render() {
     return (
       <SafeAreaView>
-        <Button title="sign" onPress={()=>this.props.navigation.navigate('Sign')} />
+        <Button title="退出" onPress={()=>this.props.navigation.navigate('Sign')} />
       </SafeAreaView>
     );
   }

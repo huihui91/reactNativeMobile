@@ -12,10 +12,15 @@ import {
 export default class AuthLoading extends Component {
   constructor(props){
     super(props)
+
     this._jumpSign();
+
   }
   _jumpSign(){
-    this.props.navigation.navigate('TabNavigator')
+    setTimeout(() => {
+      this.props.navigation.navigate('Sign')
+    }, 2000);
+
   }
   render(){
     return (

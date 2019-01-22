@@ -4,8 +4,7 @@ import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 import My from '../../js/page/My.js';
-import News from '../../js/page/News.js';
-import Search from '../../js/page/Search.js';
+import Loan from '../../js/page/Loans.js';
 import Home from '../../js/page/Home.js';
 
 const TabBottomNav = createBottomTabNavigator({
@@ -23,28 +22,14 @@ const TabBottomNav = createBottomTabNavigator({
       }
     )
   },
-  'News': {
-    screen: News,
+  'Loan': {
+    screen: Loan,
     navigationOptions: ({ navigation }) => (
       {
-        tabBarLabel: '新闻',
+        tabBarLabel: '贷款',
         tabBarIcon: ({ focused, tintColor }) => (
           <Ionicons
             name={focused ? 'md-notifications' : 'md-notifications'}
-            size={26}
-            style={{ color: tintColor }} />
-        )
-      }
-    )
-  },
-  "Search": {
-    screen: Search,
-    navigationOptions: ({ navigation }) => (
-      {
-        tabBarLabel: 'Search',
-        tabBarIcon: ({ focused, tintColor }) => (
-          <Ionicons
-            name={focused ? 'md-search' : 'md-search'}
             size={26}
             style={{ color: tintColor }} />
         )
@@ -66,13 +51,13 @@ const TabBottomNav = createBottomTabNavigator({
       )
     }
   }, {
-    initialRouteName: 'Home',//默认tab
+    initialRouteName: 'My',//默认tab
     tabBarPosition: 'bottom',//tabBar位置
     backBehavior: 'none',
     swipeEnabled: false,//不可滑动
     animationEnabled: false,//切换页面时候没有滑动效果
     tabBarOptions: {
-      activeTintColor: '#6b52ae',
+      activeTintColor: '#38f',
       inactiveTintColor: '#333333',
       showIcon: true,
       indicatorStyle: {
