@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, View, Text, StyleSheet, TextInput, Image, FlatList, ScrollView} from 'react-native';
+import { Button, View, Text, StyleSheet, TextInput, Image, FlatList, ScrollView,TouchableOpacity} from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 
 import HomeChild  from './HomeChild/index.js'
@@ -28,7 +28,9 @@ class HomeScreen extends Component {
       <View style={styles.container}>
         <View style={styles.containerChild1}>
           <View style={styles.headerTop}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('Product')}>
             <Text style={styles.headerText}>厚钱袋</Text>
+            </TouchableOpacity>
             <View style={styles.searchView}>
               <Image
                 style={styles.searchImg}
