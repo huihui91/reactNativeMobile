@@ -7,6 +7,8 @@ import My from '../../js/page/My.js';
 import Loan from '../../js/page/Loans.js';
 import Home from '../../js/page/Home.js';
 
+import pxToDp from '../../js/utily/pxToDp.js'
+
 const TabBottomNav = createBottomTabNavigator({
   "Home": {
     screen: Home,
@@ -16,7 +18,7 @@ const TabBottomNav = createBottomTabNavigator({
         tabBarIcon: ({ focused, tintColor }) => (
             <Ionicons
             name={focused ? 'md-home' : 'md-home'}
-              size={26}
+            size={pxToDp(24)}
               style={{ color: tintColor }} />
           )
       }
@@ -30,7 +32,7 @@ const TabBottomNav = createBottomTabNavigator({
         tabBarIcon: ({ focused, tintColor }) => (
           <Ionicons
             name={focused ? 'md-notifications' : 'md-notifications'}
-            size={26}
+            size={pxToDp(24)}
             style={{ color: tintColor }} />
         )
       }
@@ -44,14 +46,14 @@ const TabBottomNav = createBottomTabNavigator({
         tabBarIcon: ({ focused, tintColor }) => (
           <Ionicons
             name={focused ? 'md-person' : 'md-person'}
-            size={26}
+            size={pxToDp(24)}
             style={{ color: tintColor }} />
         )
       }
       )
     }
   }, {
-    initialRouteName: 'My',//默认tab
+    initialRouteName: 'Home',//默认tab
     tabBarPosition: 'bottom',//tabBar位置
     backBehavior: 'none',
     swipeEnabled: false,//不可滑动
@@ -66,31 +68,18 @@ const TabBottomNav = createBottomTabNavigator({
       style: {
         backgroundColor: '#fff', // TabBar 背景色
         paddingBottom: 0,
-        // borderTopWidth: 0.5,
-        // borderTopColor: '#ccc',
-        // margin:0
       },
       labelStyle: {
-        fontSize: 12,
+        fontSize: pxToDp(12),
         marginTop: 0,
         paddingTop: 0,
         paddingBottom: 0,
       },
       tabStyle: {
-        height: 56
+        height: pxToDp(46)
       }
     }
 }
 )
 
-/* const TabBottom= createAppContainer(TabBottomNav); */
 export default TabBottomNav;
-/* 
-export default class TabNavigator extends Component{
-  static navigationOptions = {
-    headerMode:"none"
-  };
-  render(){
-    return <TabBottom/>
-  }
-} */

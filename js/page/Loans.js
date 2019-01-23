@@ -36,7 +36,7 @@ export default class News extends Component {
           <Icon style={{ marginRight: 20 }} name="md-arrow-dropright" size={30} color="#4F8EF7" />
         </View>
         <View style={{flexDirection:'row',justifyContent:'flex-start',alignItems:'center',width:'100%',paddingRight:20,paddingLeft:10}}>
-          <ScrollView horizontal={true} style={{ height: 115,marginTop:10}}>
+          <ScrollView horizontal={true} style={{ height: 105,marginTop:10}}>
             {
               ['1','2','3','4','5'].map((item,index)=>{
                 return(
@@ -50,10 +50,7 @@ export default class News extends Component {
           </ScrollView>
         
         </View>
-        <View style={{width:'100%'}}>
-          <HotLoan dataArr={this.state.xloanData}></HotLoan>
-        </View>
-
+         <HotLoan dataArr={this.state.xloanData}></HotLoan>
       </View>
     )
   }
