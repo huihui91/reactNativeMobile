@@ -10,13 +10,15 @@ import AuthLoading from './js/page/Login/AuthLoading.js'
 import Sign from './js/page/Login/Sign.js'
 import LoginOut from './js/page/Login/LoginOut.js'
 import My from './js/page/My.js'
+import List from './js/page/List.js'
 import Product from './js/page/Product.js'
 
 const AppStack = createStackNavigator({
     TabNavigator: TabNavigator,
-    Product: Product
+    Product: Product,
+    List: List
 },{
-     initialRouteName: 'Product',
+    initialRouteName: 'TabNavigator',
 });
 
 const AuthStack = createStackNavigator({ LoginOut: LoginOut}); //登录
