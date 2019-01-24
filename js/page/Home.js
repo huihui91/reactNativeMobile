@@ -8,6 +8,7 @@ import HotLoan from '../component/HotLoan.js';
 
 import pxToDp from '../utily/pxToDp.js'; //px转dp
 
+import Http from '../api/index.js'
 class HomeScreen extends Component {
   constructor(props){
     super(props);
@@ -21,6 +22,10 @@ class HomeScreen extends Component {
       ],
       x:0,y:0
     }
+  }
+  async componentDidMount() {
+   let data= await Http.Get('product/getHotProduct');
+    console.log(JSON.stringify(data),'ggdd')
   }
   render() {
     const {quickEntryData}=this.state
