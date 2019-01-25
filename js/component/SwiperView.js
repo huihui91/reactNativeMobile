@@ -26,16 +26,25 @@ const styles = StyleSheet.create({
 })
 
 export default class SwiperView extends Component {
+  constructor(props){
+    super(props);
+
+  }
   render() {
+    const { dataArr }=this.props;
+    console.log(dataArr,'propsData')
+
     return (
       <View style={{alignItems:'center',justifyContent:'center',width:'100%',height:80}}>
         <Swiper style={styles.wrapper} autoplay={true} width={pxToDp(380)} height={pxToDp(80)} showsPagination={false} >
-          <View style={styles.slide1}>
-            <Image source={{ uri: 'http://static.houbank.com/loan-shop/fc244d0e-520d-4e50-98fa-0da806def64d.jpg' }} style={styles.slideImg} />
-          </View>
-          <View style={styles.slide1}>
-            <Image source={{ uri: 'http://static.houbank.com/loan-shop/c6ea9e65-b2e1-4dac-bae4-faa710070581.jpg' }} style={styles.slideImg} />
-          </View>
+         {
+           dataArr.map((item, index) => {
+             return <View style={styles.slide1} key={index}>
+               <Image source={{ uri:item.banner_url}} style={styles.slideImg} />
+              </View>
+            })
+         }
+ 
         </Swiper>
       </View>
     );

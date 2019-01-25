@@ -20,15 +20,20 @@ class HomeScreen extends Component {
         {key:'d'},
         {key:'e'},
       ],
-      x:0,y:0
+      hotProList:[],
+      quickEntryList:[],
+      toolEntryList:[],
+      swiperListData:[]
     }
   }
   async componentDidMount() {
-   let data= await Http.Get('product/getHotProduct');
-    console.log(JSON.stringify(data),'ggdd')
+    this._HotProduct();
+    this._quickEntry();
+    this._toolEntry();
+    this._swiperItem();
   }
   render() {
-    const {quickEntryData}=this.state
+    const { quickEntryData, hotProList, quickEntryList, toolEntryList, swiperListData}=this.state
     return (
       <View style={styles.container}>
         <View style={styles.containerChild1}>
@@ -47,12 +52,12 @@ class HomeScreen extends Component {
           <View style={styles.quickEntry}>
             <View style={styles.quickEntryChild}>
               {
-                quickEntryData.map((item, index) => {
+                quickEntryList.map((item, index) => {
                   return (
-                    <View key={index}>
-                      <Image source={{ uri: 'http://static.houbank.com/loan-shop/2b9fcb50-4da2-4baf-9744-9a5f37494683.jpg' }} style={styles.quickImg} />
-                      <Text>
-                        现金分期
+                    <View key={index} style={styles.flexCenter}>
+                      <Image source={{ uri: item.label_icon_url }} style={styles.quickImg} />
+                      <Text style={styles.textCenter}>
+                        {item.label_name}
                     </Text>
                     </View>
                   )
@@ -61,21 +66,24 @@ class HomeScreen extends Component {
             </View>
             <View></View>
             <View style={styles.containerChild1}>
-              <SwiperView></SwiperView>
+              <SwiperView dataArr={swiperListData}></SwiperView>
             </View>
             <View style={styles.toolBottom}>
-              <View style={styles.toolItem}>
-                <Image source={{ uri: 'http://static.houbank.com/loan-shop/7f01ea8f-22a1-4af9-8f24-521eba5c1f46.png' }} style={styles.toolImg} />
-                <Text>贷款攻略1</Text>
-              </View>
-              <View style={styles.toolItem}>
-                <Image source={{ uri: 'http://static.houbank.com/loan-shop/7f01ea8f-22a1-4af9-8f24-521eba5c1f46.png' }} style={styles.toolImg} />
-                <Text>贷款攻略2</Text>
-              </View>
+              {
+                toolEntryList.map((item, index) => {
+                  return (
+                    <View style={styles.toolItem}>
+                      <Image source={{ uri: item.label_icon_url }} style={styles.toolImg} />
+                      <Text>{item.label_name}</Text>
+                    </View>
+                  )
+                })
+              }
+             
             </View>
           </View>
         </View>
-        <HotLoan  dataArr={[{id:'1'},{id:'2'},{id:'3'},{id:'4'}]}></HotLoan>
+        <HotLoan dataArr={hotProList}></HotLoan>
       </View>
     );
   }
@@ -86,6 +94,49 @@ class HomeScreen extends Component {
     })
     this.props.navigation.navigate('Details')
   }
+  async _HotProduct() {
+    let data = await Http.Get('product/getHotProduct');
+    let hotProList = data.aaData;
+    this.setState({
+        hotProList
+    })
+  }
+  
+  async _quickEntry(){
+    let data = await Http.Post('label/getHomeLabelMessage', {
+      biz_account_source: "2",
+      index_show: "0",
+      label_type: "2"
+    })
+
+    let quickEntryList = data.aaData;
+    this.setState({
+      quickEntryList
+    })
+  }
+
+  async _toolEntry(){
+    let data = await Http.Post('label/getHomeLabelMessage', {
+      biz_account_source: "2",
+      index_show: "0",
+      label_type: "3"
+    })
+    let toolEntryList = data.aaData;
+    this.setState({
+      toolEntryList
+    })
+  }
+
+  async _swiperItem(){
+    let data = await Http.Get('banner/getBannerList', {       sourceType:0,
+      locationType:0})
+      let swiperListData=data;
+    console.log(JSON.stringify(swiperListData),'swiperListData')
+     this.setState({
+       swiperListData
+     })
+  }
+
 }
 
 const styles = StyleSheet.create({
@@ -165,6 +216,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff', 
     marginTop: pxToDp(10), 
     width: '100%' 
+  },
+  textCenter:{
+    textAlign:'center'
+  },
+  flexCenter:{
+    justifyContent:'center',
+    alignItems:'center'
   }
 })
 

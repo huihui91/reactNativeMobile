@@ -6,22 +6,34 @@ class Http {
     axios.defaults.timeout = 100000
   }
   async Get(url, resData = {}){
-    let res = await axios.get(url, { params: resData});
-    if (res.data.code ==='000000'){
-      return res.data.data;
-    }else{
-      console.log(res,'resError')
+    try{
+      let res = await axios.get(url, {
+            params: resData
+          });
+         if (res.data.code === '000000') {
+            return res.data.data;
+          } else {
+            console.log(res, 'resError')
+          }
+
+    }catch(err){
+      console.log(err,'errError')
     }
 
   }
  
   async Post(url, params={}){
-    let data = await axios.post(url, params);
-    if (res.data.code === '000000') {
-      return res.data.data;
-    }else{
-      console.log(res, 'resError')
+    try{
+      let res = await axios.post(url, params);
+        if (res.data.code === '000000') {
+          return res.data.data;
+        } else {
+          console.log(res, 'resError')
+        }
+    }catch(err){
+      console.log(err,'errError')
     }
+
   }
 
 } 
