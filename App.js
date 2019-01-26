@@ -12,11 +12,13 @@ import LoginOut from './js/page/Login/LoginOut.js'
 import My from './js/page/My.js'
 import List from './js/page/List.js'
 import Product from './js/page/Product.js'
+import ThirdPage from './js/page/ThirdPage.js'
 
 const AppStack = createStackNavigator({
     TabNavigator: TabNavigator,
+    List: List,
     Product: Product,
-    List: List
+    ThirdPage: ThirdPage
 },{
     initialRouteName: 'TabNavigator',
 });

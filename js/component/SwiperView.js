@@ -32,7 +32,6 @@ export default class SwiperView extends Component {
   }
   render() {
     const { dataArr }=this.props;
-    console.log(dataArr,'propsData')
 
     return (
       <View style={{alignItems:'center',justifyContent:'center',width:'100%',height:80}}>

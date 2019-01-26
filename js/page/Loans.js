@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { View, Text, Button, Image, ScrollView} from 'react-native'
-
+import Http from '../api/index.js'
 
 import SwiperIcons from '../component/SwiperIcons.js';
 import SwiperNews from '../component/SwiperNews.js';
 import HotLoan from '../component/HotLoan.js'
 import Icon from 'react-native-vector-icons/Ionicons';
+
+
 
 
 export default class News extends Component {
@@ -18,10 +20,15 @@ export default class News extends Component {
         {id:'3'},
         {id:'4'},
         {id:'5'},
-      ]
+      ],
+      hotProList:[]
     }
   }
+  componentDidMount(){
+    this._HotProduct()
+  }
   render() {
+    const { hotProList} =this.state;
     return (
       <View style={{flex:1,justifyContent:'flex-start',alignItems:'center',backgroundColor:'#f8f8f8'}}>
         <View style={{ width: '100%', backgroundColor: '#fff', paddingRight: 20, paddingLeft: 20}}>
@@ -50,8 +57,16 @@ export default class News extends Component {
           </ScrollView>
         
         </View>
-         <HotLoan dataArr={this.state.xloanData}></HotLoan>
+        <HotLoan dataArr={hotProList}></HotLoan>
       </View>
     )
+  }
+  
+  async _HotProduct() {
+    let data = await Http.Get('product/getHotProduct');
+    let hotProList = data.aaData;
+    this.setState({
+      hotProList
+    })
   }
 }

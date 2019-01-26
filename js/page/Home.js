@@ -38,9 +38,7 @@ class HomeScreen extends Component {
       <View style={styles.container}>
         <View style={styles.containerChild1}>
           <View style={styles.headerTop}>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('Product')}>
             <Text style={styles.headerText}>厚钱袋</Text>
-            </TouchableOpacity>
             <View style={styles.searchView}>
               <Image
                 style={styles.searchImg}
@@ -54,12 +52,14 @@ class HomeScreen extends Component {
               {
                 quickEntryList.map((item, index) => {
                   return (
+                    <TouchableOpacity onPress={() => this._entryProduct(item)}>
                     <View key={index} style={styles.flexCenter}>
                       <Image source={{ uri: item.label_icon_url }} style={styles.quickImg} />
                       <Text style={styles.textCenter}>
                         {item.label_name}
                     </Text>
                     </View>
+                    </TouchableOpacity>
                   )
                 })
               }
@@ -72,10 +72,13 @@ class HomeScreen extends Component {
               {
                 toolEntryList.map((item, index) => {
                   return (
+    
                     <View style={styles.toolItem}>
                       <Image source={{ uri: item.label_icon_url }} style={styles.toolImg} />
                       <Text>{item.label_name}</Text>
                     </View>
+
+ 
                   )
                 })
               }
@@ -83,7 +86,7 @@ class HomeScreen extends Component {
             </View>
           </View>
         </View>
-        <HotLoan dataArr={hotProList}></HotLoan>
+        <HotLoan navigation={this.props.navigation}   dataArr={hotProList}></HotLoan>
       </View>
     );
   }
@@ -131,10 +134,15 @@ class HomeScreen extends Component {
     let data = await Http.Get('banner/getBannerList', {       sourceType:0,
       locationType:0})
       let swiperListData=data;
-    console.log(JSON.stringify(swiperListData),'swiperListData')
      this.setState({
        swiperListData
      })
+  }
+
+  _entryProduct(item){
+    this.props.navigation.push('List',{
+      recommendLabel: item.label_id
+    })
   }
 
 }

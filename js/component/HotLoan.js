@@ -19,7 +19,7 @@ export default class HotLoan extends Component {
         <Text style={styles.headerText}>
           热门贷款
           </Text>
-        <FlatList data={dataArr} renderItem={(item) => <ListItem items={item} />} keyExtractor={item => item.id} ListFooterComponent={() => <View style={{ lineHeigth: 90 }}><Text>没有了</Text></View>} ></FlatList>
+        <FlatList data={dataArr} renderItem={(item) => <ListItem items={item} navigation={this.props.navigation}  />} keyExtractor={item => item.productId} ListFooterComponent={() => <View style={{ lineHeigth: 90 }}><Text>没有了</Text></View>} ></FlatList>
       </View>
     )
   }

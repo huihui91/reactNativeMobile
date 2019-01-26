@@ -8,26 +8,41 @@ import { View, Image, Text, TouchableOpacity, AlertIOS,StyleSheet} from 'react-n
     this.state = {  };
   }
   render() {
-    return (
-      <TouchableOpacity onPress={() => AlertIOS.alert(
-        'Sync Complete',
-        'All your data are belong to us.'
-      )} activeOpacity={0.6}>
-        <View style={styles.itemView}>
-            <Image source={{uri:'http://static.houbank.com/loan_shop/ddba71a5-75de-4730-87af-c638e6e143e9.png'}} style={styles.img} />
+    const { items } = this.props;
+    if (JSON.stringify(items) == "{}"){
+      return <Text>loading</Text>
+    }else{
+      return (
+        <TouchableOpacity onPress={() => this._productDetail()} activeOpacity={0.6}>
+          <View style={styles.itemView}>
+            <Image source={{ uri: items.item.thirdpartyLogo }} style={styles.img} />
             <View style={styles.textView}>
-            <Text style={styles.textHead}>立即贷</Text>
-              <Text style={styles.textMoney} >额度500元-5000元，参考利率0.065%/日 </Text>
-              <View style={styles.textDesc}>
-                <Text style={styles.textDescSmall} >国内领先的线上小额借贷平台</Text>
-              <Text style={styles.textDescSmall}>极速</Text>
-              <Text style={styles.textDescSmall}>高通过率</Text>
+              <Text style={styles.textHead}>{items.item.productName}</Text>
+              <Text style={styles.textMoney} >{
+                items.item.productDetailList[0].detail_value
+              } </Text>
+              <View style={styles.textDesc} >
+                {
+                items.item.productDetailList[1].detail_value.split(',').map((item,index)=>{
+                      return(
+                        <Text style={styles.textDescSmall} key={index} >{item}</Text>
+                      )
+                  })
+                }
               </View>
             </View>
           </View>
-      </TouchableOpacity>
-    );
+        </TouchableOpacity>
+      );
+    }
   }
+
+   _productDetail(){
+     let productId = this.props.items.item.productId;
+     this.props.navigation.navigate('Product',{
+       productId: productId
+     })
+   }
 }
 
 
@@ -58,7 +73,7 @@ const styles = StyleSheet.create({
   textDesc:{ 
     flexDirection: 'row', 
     justifyContent: 'flex-start', 
-    alignItems: 'center' 
+    alignItems: 'center' ,
   },
   textDescSmall:{ 
     color: '#52a6ff', 
