@@ -14,15 +14,21 @@ export default class HotLoan extends Component {
   }
   render(){
     const {dataArr}=this.props;
-    return(
-      <View style={styles.xloanView} >
-        <Text style={styles.headerText}>
-          热门贷款
+    if (JSON.stringify(dataArr)=='{}'){
+      return<Text>loading</Text>
+    }else{
+      return (
+        <View style={styles.xloanView} >
+          <Text style={styles.headerText}>
+            热门贷款
           </Text>
-        <FlatList data={dataArr} renderItem={(item) => <ListItem items={item} navigation={this.props.navigation}  />} keyExtractor={item => item.productId} ListFooterComponent={() => <View style={{ lineHeigth: 90 }}><Text>没有了</Text></View>} ></FlatList>
-      </View>
-    )
+          <FlatList data={dataArr} renderItem={(item) => <ListItem items={item} navigation={this.props.navigation} />} keyExtractor={this._keyExtractor} ListFooterComponent={() => <View style={{ lineHeigth: 90 }}><Text>没有了</Text></View>} ></FlatList>
+        </View>
+      )
+    }
+
   }
+  _keyExtractor = (item, index) => (item.productId+'');
 };
 
 const styles = StyleSheet.create({

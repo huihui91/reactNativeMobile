@@ -36,7 +36,7 @@ export default class Product extends Component {
                 <View style={{ backgroundColor: '#f8f8f8', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', width: '100%', height: 35 }}>
                  {
                     prodInfo.prouctCharacteristicList[1].detail_value.split('，').map((item,index)=>{
-                      return <Text style={{ backgroundColor: '#dbedff', color: '#52a6ff', fontSize: 12, paddingHorizontal: 4, paddingVertical: 3, marginRight: 5 }}>{item}</Text>
+                      return <Text style={{ backgroundColor: '#dbedff', color: '#52a6ff', fontSize: 12, paddingHorizontal: 4, paddingVertical: 3, marginRight: 5 }} key={index}>{item}</Text>
                     })
                  }
 

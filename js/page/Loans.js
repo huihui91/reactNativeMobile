@@ -57,7 +57,7 @@ export default class News extends Component {
           </ScrollView>
         
         </View>
-        <HotLoan dataArr={hotProList}></HotLoan>
+        <HotLoan navigation={this.props.navigation} dataArr={hotProList}></HotLoan>
       </View>
     )
   }

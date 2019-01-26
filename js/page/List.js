@@ -28,7 +28,7 @@ export default class List extends Component{
         <FlatList
           data={listData}
           renderItem={(item) => <ListItem items={item} navigation={this.props.navigation} />} 
-          keyExtractor={(item) => item.productId}
+          keyExtractor={(item) => item.productId.toString()}
           style={{paddingHorizontal:15}}
           ItemSeparatorComponent={() => <View style={{ backgroundColor:'#7a818b',height:1,width:'100%'}}></View>}
         />

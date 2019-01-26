@@ -52,8 +52,8 @@ class HomeScreen extends Component {
               {
                 quickEntryList.map((item, index) => {
                   return (
-                    <TouchableOpacity onPress={() => this._entryProduct(item)}>
-                    <View key={index} style={styles.flexCenter}>
+                    <TouchableOpacity onPress={() => this._entryProduct(item)} key={index}>
+                    <View  style={styles.flexCenter}>
                       <Image source={{ uri: item.label_icon_url }} style={styles.quickImg} />
                       <Text style={styles.textCenter}>
                         {item.label_name}
@@ -72,8 +72,7 @@ class HomeScreen extends Component {
               {
                 toolEntryList.map((item, index) => {
                   return (
-    
-                    <View style={styles.toolItem}>
+                    <View style={styles.toolItem} key={index} >
                       <Image source={{ uri: item.label_icon_url }} style={styles.toolImg} />
                       <Text>{item.label_name}</Text>
                     </View>
