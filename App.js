@@ -13,6 +13,7 @@ import My from './js/page/My.js'
 import List from './js/page/List.js'
 import Product from './js/page/Product.js'
 import ThirdPage from './js/page/ThirdPage.js'
+import NavigationService from './js/utily/NavigationService.js'
 
 const AppStack = createStackNavigator({
     TabNavigator: TabNavigator,
@@ -38,4 +39,16 @@ const RootComponent = createSwitchNavigator({
      headerMode: 'float'
 
 })
-export default createAppContainer(RootComponent);
+
+const AppContainer = createAppContainer(RootComponent);
+export default class App extends Component {
+
+    render() {
+        return (
+            <AppContainer ref={navigatorRef => {
+                NavigationService.setTopLevelNavigator(navigatorRef);
+            }}></AppContainer>
+        );
+    }
+}
+/* export default createAppContainer(RootComponent); */

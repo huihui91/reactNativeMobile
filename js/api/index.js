@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+import NavigationService from '../utily/NavigationService.js';
 class Http {
   constructor(){
     axios.defaults.baseURL ="http://i.houguanfin.com/loan-manager/loan/";
@@ -12,9 +13,12 @@ class Http {
           });
          if (res.data.code === '000000') {
             return res.data.data;
-          } else {
-            console.log(res, 'resError')
-          }
+         } else if (res.data.code === '5000') {
+           //登录失效
+           NavigationService.navigate('Sign');
+         } else {
+           console.log(res, 'resError')
+         }
 
     }catch(err){
       console.log(err,'errError')
@@ -27,7 +31,10 @@ class Http {
       let res = await axios.post(url, params);
         if (res.data.code === '000000') {
           return res.data.data;
-        } else {
+        } else if(res.data.code === '5000') {
+          //登录失效
+          NavigationService.navigate('Sign');
+        }else{
           console.log(res, 'resError')
         }
     }catch(err){
