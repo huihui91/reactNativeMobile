@@ -32,7 +32,7 @@ export default class SwiperNews extends Component {
     const { newsData }=this.state;
     return (
       <View style={{ alignItems: 'center', justifyContent: 'center', width: '80%', height: 40 }}>
-        <Swiper height={40} horizontal={false} autoplay showsPagination={false}>
+        <Swiper height={40} horizontal={false} autoplay showsPagination={false} loop={true}>
         {
             newsData.map((item,index)=>{
               return ( <View style={styles.slide1} key={index}>

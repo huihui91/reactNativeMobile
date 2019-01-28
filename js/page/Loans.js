@@ -21,14 +21,16 @@ export default class News extends Component {
         {id:'4'},
         {id:'5'},
       ],
-      hotProList:[]
+      hotProList:[],
+      amountList:[]
     }
   }
   componentDidMount(){
-    this._HotProduct()
+    this._HotProduct();
+    this._amountRange()
   }
   render() {
-    const { hotProList} =this.state;
+    const { hotProList, amountList} =this.state;
     return (
       <View style={{flex:1,justifyContent:'flex-start',alignItems:'center',backgroundColor:'#f8f8f8'}}>
         <View style={{ width: '100%', backgroundColor: '#fff', paddingRight: 20, paddingLeft: 20}}>
@@ -45,11 +47,11 @@ export default class News extends Component {
         <View style={{flexDirection:'row',justifyContent:'flex-start',alignItems:'center',width:'100%',paddingRight:20,paddingLeft:10}}>
           <ScrollView horizontal={true} style={{ height: 105,marginTop:10}}>
             {
-              ['1','2','3','4','5'].map((item,index)=>{
+              amountList.map((item,index)=>{
                 return(
                   <View style={{ height: 95, width: 95, alignItems: 'center',marginLeft:10 }} key={index} >
-                    <Image source={{ uri: 'http://static.houbank.com/loan-shop/1b7e533e-557c-46e0-89ef-7c78cf2fe00e.png' }} style={{ height: 80, width: 96, borderRadius: 5 }} />
-                    <Text style={{ marginTop: 5, fontSize: 12, color: '#7a818b' }}>2000以下</Text>
+                    <Image source={{ uri:item.label_icon_url }} style={{ height: 80, width: 96, borderRadius: 5 }} />
+                    <Text style={{ marginTop: 5, fontSize: 12, color: '#7a818b' }}>{item.label_name}</Text>
                   </View>
                 )
               })
@@ -67,6 +69,20 @@ export default class News extends Component {
     let hotProList = data.aaData;
     this.setState({
       hotProList
+    })
+  }
+
+  async _amountRange(){
+    let data = await Http.Post('label/getHomeLabelMessage',{
+      biz_account_source: "2",
+      index_show: "1",
+      label_type: "1",
+      pageNumber: "1",
+      pageSize: "100"
+    });
+    let amountList=data.aaData;
+    this.setState({
+      amountList
     })
   }
 }
