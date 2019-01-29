@@ -24,12 +24,12 @@ export default class AuthLoading extends Component {
   }
   render(){
     return (
-          <SafeAreaView>
-        <View style={styles.container}>
-              <ActivityIndicator />
-           <Text style={styles.text}>Loading.....</Text>
-            </View>
-           </SafeAreaView>
+      <SafeAreaView style={styles.container}>
+         <View>
+          <ActivityIndicator />
+          <Text style={styles.text}>Loading.....</Text>
+         </View>
+      </SafeAreaView>
     )
   }
   
