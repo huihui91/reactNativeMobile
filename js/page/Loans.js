@@ -11,6 +11,9 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 
 export default class Loans extends Component {
+  static navigationOptions = {
+    title: '借款',
+  }
   constructor(props) {
     super(props);
     this.state={

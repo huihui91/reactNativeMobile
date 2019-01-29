@@ -21,7 +21,7 @@ const TabBottomNav = createBottomTabNavigator({
             size={pxToDp(24)}
               style={{ color: tintColor }} />
           ),
-        headerTitle: '首页'
+        title: '首页'
       }
     )
   },
@@ -35,7 +35,8 @@ const TabBottomNav = createBottomTabNavigator({
             name={focused ? 'md-notifications' : 'md-notifications'}
             size={pxToDp(24)}
             style={{ color: tintColor }} />
-        )
+        ),
+        title: '贷款'
       }
     )
   },
@@ -49,7 +50,8 @@ const TabBottomNav = createBottomTabNavigator({
             name={focused ? 'md-person' : 'md-person'}
             size={pxToDp(24)}
             style={{ color: tintColor }} />
-        )
+        ),
+        title: '个人中心'
       }
       )
     }
@@ -86,9 +88,25 @@ const TabBottomNav = createBottomTabNavigator({
 TabBottomNav.navigationOptions = ({ navigation, screenProps }) => {
   console.log(JSON.stringify(navigation),'navigation')
   console.log(JSON.stringify(screenProps),'screenProps')
-  return {
-    title: '首页'
+  let { routeName } = navigation.state.routes[navigation.state.index];
+  let title;
+  if (routeName === 'Home') {
+    title = '首页';
+  } else if (routeName === 'Loan') {
+    title = '贷款';
+  } else if (routeName === 'My') {
+    title = '个人中心';
   }
+  return {
+    title,
+    headerStyle: {
+      backgroundColor: '#fff',
+    },
+    headerTintColor: '#333',
+    headerTitleStyle: {
+    }
+  };
+  
 }
 
 export default TabBottomNav;
