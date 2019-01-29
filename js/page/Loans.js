@@ -33,7 +33,7 @@ export default class Loans extends Component {
           <Text style={styles.headText}>贷款超市</Text>
         </View>
         <View>
-          <SwiperIcons></SwiperIcons>
+          <SwiperIcons navigation={this.props.navigation}></SwiperIcons>
         </View>
         <View style={styles.icons}>
           <Icon style={styles.marRig20} name="md-mail" size={30} color="#4F8EF7" />

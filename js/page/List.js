@@ -37,13 +37,15 @@ export default class List extends Component{
     )
   }
   async _getList() {
-    let id = this.props.navigation.state.params.recommendLabel
+    let id = this.props.navigation.state.params.recommendLabel;
+    let typeLabel = this.props.navigation.state.params.typeLabel;
     let data = await Http.Post('product/queryProductList', {
       bizAccountSource: "2",
       channel: "h5",
       pageNum: 1,
       pageSize: 10,
-      recommendLabel: id
+      recommendLabel: id,
+      typeLabel: typeLabel
     })
     let listData = data.aaData;
     this.setState({

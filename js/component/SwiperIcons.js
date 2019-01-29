@@ -3,7 +3,8 @@ import {
   StyleSheet,
   View,
   Image,
-  Text
+  Text,
+  TouchableOpacity
 } from 'react-native';
 
 import pxToDp from '../utily/pxToDp.js'
@@ -41,10 +42,11 @@ export default class SwiperView extends Component {
           <View style={styles.slide1}>
             {listFirst.map((item,index)=>{
               return(
-                <View key={item.label_id.toString()} style={{width:'25%',height:pxToDp(86),justifyContent:'center',alignItems:'center'}}>
+                <TouchableOpacity key={item.label_id.toString()} onPress={() => this._entryList(item)} style={{width:'25%',height:pxToDp(86),justifyContent:'center',alignItems:'center'}} >
                   <Image source={{ uri: item.label_icon_url}} style={{height:pxToDp(45),width:pxToDp(45),marginBottom:pxToDp(5)}} />
                   <Text style={{fontSize:pxToDp(12)}} >{item.label_name}</Text>
-                </View>
+                </TouchableOpacity>
+            
               )
             })
             }
@@ -80,6 +82,11 @@ export default class SwiperView extends Component {
     this.setState({
       listFirst,
       listSecond
+    })
+  }
+  _entryList(item){
+    this.props.navigation.push('List', {
+      typeLabel: item.label_id
     })
   }
 }
