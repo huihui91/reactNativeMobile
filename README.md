@@ -3,7 +3,7 @@
 
 ###### 使用axios创建实例，调用接口
 
-`
+ ```
 import axios from 'axios';
 
 class Http {
@@ -43,10 +43,10 @@ class Http {
   }
 } 
 export default new Http();
-`
+ ```
 
 ######  使用reactnavigation3做路由跳转
-`
+ ```
 const AppStack = createStackNavigator({
     TabNavigator: TabNavigator,
     List: List,
@@ -73,17 +73,17 @@ const RootComponent = createSwitchNavigator({
 })
 export default createAppContainer(RootComponent);
 
-`
+ ```
 ## createAppContainer 只能调用一次 ##
 
 
 ###### 使用  react-native init指令创建项目
-` react-native init 项目名称
-`
+ ``` react-native init 项目名称
+ ```
 
 
 ###### 在utily 文件下封装了px转Dp方法
-`
+ ```
 import { Dimensions } from 'react-native';
 
 // 58 app 只有竖屏模式，所以可以只获取一次 width
@@ -96,12 +96,12 @@ function pxToDp(uiElementPx) {
 }
 
 export default pxToDp;
-`
+ ```
 
 ##### 使用 react navigation中的 NavigationActions 做登录校验，登录失败后跳转到登录页
 
 -- 在utily中的封装方法
-`
+ ```
 import { NavigationActions } from 'react-navigation';
 
 let _navigator;
@@ -125,21 +125,21 @@ export default {
   navigate,
   setTopLevelNavigator,
 };
-`
+ ```
 
 --在App.js中将navigation注入到上面的js中
-`
+ ```
   <AppContainer ref={navigatorRef => {
                 NavigationService.setTopLevelNavigator(navigatorRef);
             }}></AppContainer>
             
-`
+ ```
 
 ###### 创建js文件夹用于存放js文件
-`
+ ```
  --api 用于存放axios的设置
  --assets 用于存放静态资源
  --page存放各个组要Component
  --component 存放公共组件
  --utily存放本地公共方法
-`
+ ```
