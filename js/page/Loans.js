@@ -6,7 +6,7 @@ import SwiperIcons from '../component/SwiperIcons.js';
 import SwiperNews from '../component/SwiperNews.js';
 import HotLoan from '../component/HotLoan.js'
 import Icon from 'react-native-vector-icons/Ionicons';
-
+import pxToDp from "../utily/pxToDp.js"
 
 
 
@@ -93,52 +93,52 @@ const styles = StyleSheet.create({
   headBg:{ 
     width: '100%', 
     backgroundColor: '#fff', 
-    paddingRight: 20, 
-    paddingLeft: 20 
+    paddingRight: pxToDp(20), 
+    paddingLeft: pxToDp(20) 
   },
   headText:{ 
-    lineHeight: 40, 
+    lineHeight: pxToDp(40), 
     color: '#333', 
-    fontSize: 16 
+    fontSize: pxToDp(16) 
   },
   icons: { 
     flexDirection: 'row', 
     justifyContent: 'flex-start', 
     alignItems: 'center', 
     backgroundColor: '#fff', 
-    paddingRight: 20, 
-    paddingLeft: 20, 
+    paddingRight: pxToDp(20), 
+    paddingLeft: pxToDp(20), 
     width: '100%' 
   },
   marRig20: { 
-    marginRight: 20 
+    marginRight: pxToDp(20) 
   },
   scrollView: { 
     flexDirection: 'row', 
     justifyContent: 'flex-start', 
     alignItems: 'center', 
     width: '100%', 
-    paddingRight: 20, 
-    paddingLeft: 10 
+    paddingRight: pxToDp(20), 
+    paddingLeft: pxToDp(10) 
   },
   scrollStyle: { 
-    height: 105, 
-    marginTop: 10 
+    height: pxToDp(105), 
+    marginTop: pxToDp(10) 
   },
   scrollItemView: 
-  { height: 95, 
-    width: 95, 
+  { height: pxToDp(95), 
+    width: pxToDp(95), 
     alignItems: 'center', 
-    marginLeft: 10 
+    marginLeft: pxToDp(10) 
   },
   scrollImg: { 
-    height: 80, 
-    width: 96, 
-    borderRadius: 5 
+    height: pxToDp(80), 
+    width: pxToDp(96), 
+    borderRadius: pxToDp(5) 
   },
   scrollText: { 
-    marginTop: 5, 
-    fontSize: 12, 
+    marginTop: pxToDp(5), 
+    fontSize: pxToDp(12), 
     color: '#7a818b' 
   }
 })

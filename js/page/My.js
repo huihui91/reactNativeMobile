@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Button, Image,StyleSheet} from 'react-native'
 
+import pxToDp from "../utily/pxToDp.js"
 export default class My extends Component{
   constructor(props){
     super(props)
@@ -59,21 +60,21 @@ const styles = StyleSheet.create({
   },
   headBg: { 
     backgroundColor: '#fff', 
-    paddingLeft: 15 
+    paddingLeft: pxToDp(15) 
   },
   headText:{ 
-    fontSize: 16, 
+    fontSize: pxToDp(16), 
     color: '#333', 
-    lineHeight: 43 
+    lineHeight: pxToDp(43) 
   },
   headImgView: { 
-    height: 100, 
-    paddingLeft: 10, 
+    height: pxToDp(100), 
+    paddingLeft: pxToDp(10), 
     justifyContent: 'center' 
   },
   headImg: { 
-    height: 55, 
-    width: 55, 
+    height: pxToDp(55), 
+    width: pxToDp(55), 
     borderRadius: 22.5 
   },
   quickView: { 
@@ -85,10 +86,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around', 
     alignItems: 'center', 
     width: '90%', 
-    height: 120, 
-    marginVertical: 20, 
+    height: pxToDp(120), 
+    marginVertical: pxToDp(20), 
     backgroundColor: '#fff', 
-    borderRadius: 10, 
+    borderRadius: pxToDp(10), 
     shadowColor: '#000', 
     shadowOpacity: 0.09, 
     shadowOffset: { 'width': 0, 'height': 5 } 
@@ -98,31 +99,31 @@ const styles = StyleSheet.create({
     alignItems: 'center' 
   },
   itemImg: { 
-    height: 45, 
-    width: 45, 
-    marginBottom: 5 
+    height: pxToDp(45), 
+    width: pxToDp(45), 
+    marginBottom: pxToDp(5) 
   },
   itemText: { 
-    fontSize: 12, 
+    fontSize: pxToDp(12), 
     color: '#333' 
   },
   toolView: { 
     justifyContent: 'flex-start', 
     alignItems: 'flex-start', 
     width: '90%', 
-    height: 140, 
-    marginVertical: 20, 
+    height: pxToDp(140), 
+    marginVertical: pxToDp(20), 
     backgroundColor: '#fff', 
-    borderRadius: 10, 
+    borderRadius: pxToDp(10), 
     shadowColor: '#000', 
     shadowOpacity: 0.09, 
-    shadowOffset: { 'width': 0, 'height': 5 } 
+    shadowOffset: { 'width': 0, 'height': pxToDp(5) } 
   },
   toolText: { 
-    fontSize: 16, 
-    lineHeight: 30, 
-    paddingLeft: 10, 
-    paddingTop: 10, 
+    fontSize: pxToDp(16), 
+    lineHeight: pxToDp(30), 
+    paddingLeft: pxToDp(10), 
+    paddingTop: pxToDp(10), 
     color: '#333' 
   },
   toolItemView: { 

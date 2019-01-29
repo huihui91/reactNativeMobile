@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Http from '../api/index.js'
 import { View, Text, StyleSheet, ScrollView, Image,TouchableOpacity} from 'react-native';
 
+import pxToDp from "../utily/pxToDp.js"
+
 export default class Product extends Component {
 
   static navigationOptions={
@@ -146,16 +148,16 @@ const styles = StyleSheet.create({
   ViewBox:{
     backgroundColor:'#f8f8f8',
     flex:1,
-    marginBottom:60
+    marginBottom:pxToDp(60)
   },
   flex1: { 
     flex: 1 
   },
   scrollItemView:{ 
-    backgroundColor: '#f4f5f9', paddingHorizontal: 15, 
-    paddingTop: 35, 
+    backgroundColor: '#f4f5f9', paddingHorizontal: pxToDp(15), 
+    paddingTop: pxToDp(35), 
     width: '100%', 
-    height: 130 
+    height: pxToDp(130) 
   },
   scrollTopView: { 
     justifyContent: 'flex-start', 
@@ -173,15 +175,15 @@ const styles = StyleSheet.create({
     width: '100%' 
   },
   topImg: { 
-    height: 80, 
-    width: 80, 
+    height: pxToDp(80), 
+    width: pxToDp(80), 
     position: 'relative', 
-    top: -15, 
-    marginHorizontal: 15 
+    top: pxToDp(-15), 
+    marginHorizontal: pxToDp(15) 
   },
   topText: { 
     color: '#4a5f76', 
-    fontSize: 15 
+    fontSize: pxToDp(15) 
   },
   middleView:{ 
     backgroundColor: '#f8f8f8', 
@@ -189,19 +191,19 @@ const styles = StyleSheet.create({
     justifyContent: 'center', 
     alignItems: 'center', 
     width: '100%', 
-    height: 35 
+    height: pxToDp(35) 
   },
   middleViewText:{ 
     backgroundColor: '#dbedff', 
     color: '#52a6ff', 
-    fontSize: 12, 
-    paddingHorizontal: 4, 
-    paddingVertical: 3, 
-    marginRight: 5 
+    fontSize: pxToDp(12), 
+    paddingHorizontal: pxToDp(4), 
+    paddingVertical: pxToDp(3), 
+    marginRight: pxToDp(5) 
   },
   prodInfoView:{ 
-    marginTop: 40, 
-    paddingHorizontal: 15 
+    marginTop: pxToDp(40), 
+    paddingHorizontal: pxToDp(15) 
   },
   prodInfoTop:{ 
     flexDirection: 'row', 
@@ -213,28 +215,28 @@ const styles = StyleSheet.create({
     shadowColor: '#000', 
     shadowOpacity: 0.12, 
     shadowOffset: {
-      width: 2, height: 4
+      width: 2, height: pxToDp(4)
     }, 
     backgroundColor: '#f8f8f8', 
-    height: 45, 
-    width: 165, 
+    height: pxToDp(45), 
+    width: pxToDp(165), 
     justifyContent: 'center', 
     alignItems: 'center', 
-    borderRadius: 5
+    borderRadius:pxToDp(5)
   },
   prodInfoMid:{ 
     justifyContent: 'center', 
     alignItems: 'center', 
-    height: 108 
+    height: pxToDp(108) 
   },
   prodInfoMidText:{ 
     color: '#ff8900', 
-    fontSize: 24, 
+    fontSize: pxToDp(24), 
     fontWeight: 'bold' 
   },
   prodInfoMidText2:{ 
     color: '#99a0aa', 
-    fontSize: 12 
+    fontSize: pxToDp(12) 
   },
   prodInfoBottom:{ 
     flexDirection: 'row', 
@@ -244,7 +246,7 @@ const styles = StyleSheet.create({
   },
   prodInfoBottomText:{ 
     color: '#99a0aa', 
-    fontSize: 12, 
+    fontSize: pxToDp(12), 
     flex: 1, 
     textAlign: 'center' 
   },
@@ -252,31 +254,31 @@ const styles = StyleSheet.create({
     color: '#ff8900' 
   },
   prodInfoConditional: { 
-    padding: 15, 
+    padding: pxToDp(15), 
     backgroundColor: '#fff', 
-    marginTop: 10 
+    marginTop: pxToDp(10) 
   },
   prodInfoConditionalTitle:{ 
     color: '#333', 
-    fontSize: 16 
+    fontSize: pxToDp(16) 
   },
   marginTop15:{
-    marginTop: 15 
+    marginTop: pxToDp(15) 
   },
   ConditionalText:{ 
     color: '#7a818b', 
-    fontSize: 13, 
-    marginBottom: 10 
+    fontSize: pxToDp(13), 
+    marginBottom: pxToDp(10) 
   },
   prodRecommend:{
     backgroundColor: '#fff', 
-    padding: 15, 
-    marginTop: 10 
+    padding: pxToDp(15), 
+    marginTop: pxToDp(10) 
   },
   prodRecommendTitle:{ 
     color: '#333', 
-    fontSize: 16, 
-    lineHeight: 50 
+    fontSize: pxToDp(16), 
+    lineHeight: pxToDp(50) 
   },
   prodRecommendView:{ 
     flexDirection: 'row', 
@@ -284,8 +286,8 @@ const styles = StyleSheet.create({
     alignItems: 'center' 
   },
   prodRecommendImg:{
-    height: 60, 
-    width: 60
+    height: pxToDp(60), 
+    width: pxToDp(60)
   }
   
   

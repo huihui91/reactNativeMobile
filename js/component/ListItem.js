@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import { View, Image, Text, TouchableOpacity, AlertIOS,StyleSheet} from 'react-native';
 
+import pxToDp from '../utily/pxToDp.js'
  export default class ListItem extends Component {
   constructor(props) {
     super(props);
@@ -51,24 +52,24 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-start', 
     alignItems: 'center', 
-    marginVertical: 10 },
+    marginVertical: pxToDp(10) },
     img:{
-      height: 60, 
-      width: 60
+      height: pxToDp(60), 
+      width: pxToDp(60)
     },
     textView:{
-      marginLeft: 10,
-      height: 60 
+      marginLeft: pxToDp(10),
+      height: pxToDp(60) 
     },
    textHead:{ 
     color: '#1b88ee', 
-    fontSize: 15 
+    fontSize: pxToDp(15) 
    },
    textMoney: { 
     color: '#4a5f76', 
-    fontSize: 12, 
-    marginTop: 2, 
-    marginBottom: 5 
+    fontSize: pxToDp(12), 
+    marginTop: pxToDp(2), 
+    marginBottom: pxToDp(5) 
   },
   textDesc:{ 
     flexDirection: 'row', 
@@ -77,9 +78,9 @@ const styles = StyleSheet.create({
   },
   textDescSmall:{ 
     color: '#52a6ff', 
-    fontSize: 12, 
+    fontSize: pxToDp(12), 
     backgroundColor: '#dbedff', 
-    marginRight: 4, 
-    padding: 2 
+    marginRight: pxToDp(4), 
+    padding: pxToDp(2) 
   }
 })

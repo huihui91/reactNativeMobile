@@ -60,14 +60,14 @@ const styles = StyleSheet.create({
   },
   listTip: { 
     color: '#7a818b', 
-    fontSize: 12, 
+    fontSize:pxToDp(12) , 
     width: '100%', 
     backgroundColor: '#f8f8f8', 
     textAlign: 'center', 
-    paddingVertical: 8 
+    paddingVertical: pxToDp(8) 
   },
   padding15: { 
-    paddingHorizontal: 15 
+    paddingHorizontal: pxToDp(15) 
   },
   separ:{ 
     backgroundColor: '#7a818b', 

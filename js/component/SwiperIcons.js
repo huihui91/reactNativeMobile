@@ -6,6 +6,7 @@ import {
   Text
 } from 'react-native';
 
+import pxToDp from '../utily/pxToDp.js'
 import Swiper from 'react-native-swiper';
 import Http from "../api/index.js"
 
@@ -19,8 +20,8 @@ const styles = StyleSheet.create({
     width: "100%",
     flexWrap:'wrap',
     flexDirection:'row',
-    paddingRight:20,
-    paddingLeft:20
+    paddingRight:pxToDp(20),
+    paddingLeft:pxToDp(20)
   }
 })
 
@@ -35,14 +36,14 @@ export default class SwiperView extends Component {
   render() {
     const { listFirst, listSecond}=this.state;
     return (
-      <View style={{ alignItems: 'center', justifyContent: 'center', width: '100%', height: 200}}>
-        <Swiper style={styles.wrapper} dotStyle={{ width: 24, height: 2 }} activeDotStyle={{ width: 24, height: 2 }} index={1} >
+      <View style={{ alignItems: 'center', justifyContent: 'center', width: '100%', height: pxToDp(200)}}>
+        <Swiper style={styles.wrapper} dotStyle={{ width: pxToDp(24), height: pxToDp(2) }} activeDotStyle={{ width: pxToDp(24), height:pxToDp(2)  }} index={1} >
           <View style={styles.slide1}>
             {listFirst.map((item,index)=>{
               return(
-                <View key={item.label_id.toString()} style={{width:'25%',height:86,justifyContent:'center',alignItems:'center'}}>
-                  <Image source={{ uri: item.label_icon_url}} style={{height:45,width:45,marginBottom:5}} />
-                  <Text style={{fontSize:12}} >{item.label_name}</Text>
+                <View key={item.label_id.toString()} style={{width:'25%',height:pxToDp(86),justifyContent:'center',alignItems:'center'}}>
+                  <Image source={{ uri: item.label_icon_url}} style={{height:pxToDp(45),width:pxToDp(45),marginBottom:pxToDp(5)}} />
+                  <Text style={{fontSize:pxToDp(12)}} >{item.label_name}</Text>
                 </View>
               )
             })
@@ -51,9 +52,9 @@ export default class SwiperView extends Component {
           <View style={styles.slide1}>
             {listSecond.map((item, index) => {
               return (
-                <View key={item.label_id.toString()} style={{ width: '25%', height: 86, justifyContent: 'center', alignItems: 'center' }}>
-                  <Image source={{ uri: item.label_icon_url }} style={{ height: 45, width: 45 }} />
-                  <Text style={{ fontSize: 12 }}>{item.label_name}</Text>
+                <View key={item.label_id.toString()} style={{ width: '25%', height: pxToDp(86), justifyContent: 'center', alignItems: 'center' }}>
+                  <Image source={{ uri: item.label_icon_url }} style={{ height: pxToDp(45), width: pxToDp(45) }} />
+                  <Text style={{ fontSize: pxToDp(12) }}>{item.label_name}</Text>
                 </View>
               )
             })
