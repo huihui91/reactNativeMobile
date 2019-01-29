@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Button, Image, ScrollView} from 'react-native'
+import { View, Text, Button, Image, ScrollView,StyleSheet} from 'react-native'
 import Http from '../api/index.js'
 
 import SwiperIcons from '../component/SwiperIcons.js';
@@ -28,26 +28,26 @@ export default class Loans extends Component {
   render() {
     const { hotProList, amountList} =this.state;
     return (
-      <View style={{flex:1,justifyContent:'flex-start',alignItems:'center',backgroundColor:'#f8f8f8'}}>
-        <View style={{ width: '100%', backgroundColor: '#fff', paddingRight: 20, paddingLeft: 20}}>
-          <Text style={{ lineHeight: 40, color:'#333',fontSize:16}}>贷款超市</Text>
+      <View style={styles.flex1}>
+        <View style={styles.headBg}>
+          <Text style={styles.headText}>贷款超市</Text>
         </View>
         <View>
           <SwiperIcons></SwiperIcons>
         </View>
-        <View style={{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', backgroundColor: '#fff', paddingRight: 20, paddingLeft: 20,width:'100%'}}>
-          <Icon style={{marginRight:20}} name="md-mail" size={30} color="#4F8EF7" />
+        <View style={styles.icons}>
+          <Icon style={styles.marRig20} name="md-mail" size={30} color="#4F8EF7" />
           <SwiperNews></SwiperNews>
-          <Icon style={{ marginRight: 20 }} name="md-arrow-dropright" size={30} color="#4F8EF7" />
+          <Icon style={ styles.marRig20} name="md-arrow-dropright" size={30} color="#4F8EF7" />
         </View>
-        <View style={{flexDirection:'row',justifyContent:'flex-start',alignItems:'center',width:'100%',paddingRight:20,paddingLeft:10}}>
-          <ScrollView horizontal={true} style={{ height: 105,marginTop:10}}>
+        <View style={styles.scrollView}>
+          <ScrollView horizontal={true} style={styles.scrollStyle}>
             {
               amountList.map((item,index)=>{
                 return(
-                  <View style={{ height: 95, width: 95, alignItems: 'center',marginLeft:10 }} key={index} >
-                    <Image source={{ uri:item.label_icon_url }} style={{ height: 80, width: 96, borderRadius: 5 }} />
-                    <Text style={{ marginTop: 5, fontSize: 12, color: '#7a818b' }}>{item.label_name}</Text>
+                  <View style={styles.scrollItemView} key={index} >
+                    <Image source={{ uri:item.label_icon_url }} style={styles.scrollImg} />
+                    <Text style={styles.scrollText}>{item.label_name}</Text>
                   </View>
                 )
               })
@@ -82,3 +82,63 @@ export default class Loans extends Component {
     })
   }
 }
+
+const styles = StyleSheet.create({
+  flex1: { 
+    flex: 1, 
+    justifyContent: 'flex-start', 
+    alignItems: 'center', 
+    backgroundColor: '#f8f8f8' 
+  },
+  headBg:{ 
+    width: '100%', 
+    backgroundColor: '#fff', 
+    paddingRight: 20, 
+    paddingLeft: 20 
+  },
+  headText:{ 
+    lineHeight: 40, 
+    color: '#333', 
+    fontSize: 16 
+  },
+  icons: { 
+    flexDirection: 'row', 
+    justifyContent: 'flex-start', 
+    alignItems: 'center', 
+    backgroundColor: '#fff', 
+    paddingRight: 20, 
+    paddingLeft: 20, 
+    width: '100%' 
+  },
+  marRig20: { 
+    marginRight: 20 
+  },
+  scrollView: { 
+    flexDirection: 'row', 
+    justifyContent: 'flex-start', 
+    alignItems: 'center', 
+    width: '100%', 
+    paddingRight: 20, 
+    paddingLeft: 10 
+  },
+  scrollStyle: { 
+    height: 105, 
+    marginTop: 10 
+  },
+  scrollItemView: 
+  { height: 95, 
+    width: 95, 
+    alignItems: 'center', 
+    marginLeft: 10 
+  },
+  scrollImg: { 
+    height: 80, 
+    width: 96, 
+    borderRadius: 5 
+  },
+  scrollText: { 
+    marginTop: 5, 
+    fontSize: 12, 
+    color: '#7a818b' 
+  }
+})

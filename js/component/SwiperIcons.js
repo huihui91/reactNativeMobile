@@ -76,7 +76,6 @@ export default class SwiperView extends Component {
     });
     let listFirst = data.aaData.slice(0,8);
     let listSecond = data.aaData.slice(8);
-    console.log(JSON.stringify(listFirst),'listFirst')
     this.setState({
       listFirst,
       listSecond

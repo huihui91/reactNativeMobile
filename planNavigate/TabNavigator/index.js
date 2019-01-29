@@ -86,8 +86,6 @@ const TabBottomNav = createBottomTabNavigator({
 )
 
 TabBottomNav.navigationOptions = ({ navigation, screenProps }) => {
-  console.log(JSON.stringify(navigation),'navigation')
-  console.log(JSON.stringify(screenProps),'screenProps')
   let { routeName } = navigation.state.routes[navigation.state.index];
   let title;
   if (routeName === 'Home') {
