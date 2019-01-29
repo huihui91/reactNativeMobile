@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react'
 import { View, Image, Text, TouchableOpacity, AlertIOS,StyleSheet} from 'react-native';
+import FastImage from 'react-native-fast-image'
 
 import pxToDp from '../utily/pxToDp.js'
  export default class ListItem extends Component {
@@ -16,7 +17,7 @@ import pxToDp from '../utily/pxToDp.js'
       return (
         <TouchableOpacity onPress={() => this._productDetail()} activeOpacity={0.6}>
           <View style={styles.itemView}>
-            <Image source={{ uri: items.item.thirdpartyLogo }} style={styles.img} />
+            <FastImage source={{ uri: items.item.thirdpartyLogo }} style={styles.img} />
             <View style={styles.textView}>
               <Text style={styles.textHead}>{items.item.productName}</Text>
               <Text style={styles.textMoney} >{

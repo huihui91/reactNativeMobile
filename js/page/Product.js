@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Http from '../api/index.js'
 import { View, Text, StyleSheet, ScrollView, Image,TouchableOpacity} from 'react-native';
+import FastImage from 'react-native-fast-image'
 
 import pxToDp from "../utily/pxToDp.js"
 
@@ -30,7 +31,7 @@ export default class Product extends Component {
             <View style={styles.scrollItemView}>
               <View style={styles.scrollTopView}>
                 <View style={styles.topViewBg}>
-                  <Image source={{ uri: prodInfo.thirdpartyLogo }} style={styles.topImg} />
+                  <FastImage source={{ uri: prodInfo.thirdpartyLogo }} style={styles.topImg} />
                   <Text style={styles.topText}>{
                     prodInfo.prouctCharacteristicList[0].detail_value
                   }</Text>
@@ -99,7 +100,7 @@ export default class Product extends Component {
             <View style={styles.prodRecommend} >
               <Text style={styles.prodRecommendTitle} >为您推荐</Text>
               <View style={styles.prodRecommendView}>
-                <Image source={{ uri: 'http://static.houbank.com/loan_shop/ddba71a5-75de-4730-87af-c638e6e143e9.png' }} style={styles.prodRecommendImg} />
+                <FastImage source={{ uri: 'http://static.houbank.com/loan_shop/ddba71a5-75de-4730-87af-c638e6e143e9.png' }} style={styles.prodRecommendImg} />
                 <View style={{ marginLeft: 10, height: 60 }}>
                   <Text style={{ color: '#1b88ee', fontSize: 15 }}>立即贷</Text>
                   <Text style={{ color: '#4a5f76', fontSize: 12, marginTop: 2, marginBottom: 5 }} >额度500元-5000元，参考利率0.065%/日 </Text>

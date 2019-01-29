@@ -6,10 +6,12 @@ import {
   Text,
   TouchableOpacity
 } from 'react-native';
+import FastImage from 'react-native-fast-image'
 
 import pxToDp from '../utily/pxToDp.js'
 import Swiper from 'react-native-swiper';
 import Http from "../api/index.js"
+
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -43,7 +45,7 @@ export default class SwiperView extends Component {
             {listFirst.map((item,index)=>{
               return(
                 <TouchableOpacity key={item.label_id.toString()} onPress={() => this._entryList(item)} style={{width:'25%',height:pxToDp(86),justifyContent:'center',alignItems:'center'}} >
-                  <Image source={{ uri: item.label_icon_url}} style={{height:pxToDp(45),width:pxToDp(45),marginBottom:pxToDp(5)}} />
+                  <FastImage source={{ uri: item.label_icon_url}} style={{height:pxToDp(45),width:pxToDp(45),marginBottom:pxToDp(5)}} />
                   <Text style={{fontSize:pxToDp(12)}} >{item.label_name}</Text>
                 </TouchableOpacity>
             
@@ -55,7 +57,7 @@ export default class SwiperView extends Component {
             {listSecond.map((item, index) => {
               return (
                 <View key={item.label_id.toString()} style={{ width: '25%', height: pxToDp(86), justifyContent: 'center', alignItems: 'center' }}>
-                  <Image source={{ uri: item.label_icon_url }} style={{ height: pxToDp(45), width: pxToDp(45) }} />
+                  <FastImage source={{ uri: item.label_icon_url }} style={{ height: pxToDp(45), width: pxToDp(45) }} />
                   <Text style={{ fontSize: pxToDp(12) }}>{item.label_name}</Text>
                 </View>
               )

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, Button, Image,StyleSheet} from 'react-native'
+import FastImage from 'react-native-fast-image'
 
 import pxToDp from "../utily/pxToDp.js"
 export default class My extends Component{
@@ -12,7 +13,7 @@ export default class My extends Component{
         <View style={styles.headBg}>
           <Text style={styles.headText}>个人中心</Text>
           <View style={styles.headImgView}>
-            <Image source={{ uri: 'https://static.houbank.com/app/loan-product-more/img/defaultImg.933141f8.png' }} style={styles.headImg} />
+            <FastImage source={{ uri: 'https://static.houbank.com/app/loan-product-more/img/defaultImg.933141f8.png' }} style={styles.headImg} />
           </View>
         </View>
          
@@ -20,7 +21,7 @@ export default class My extends Component{
           <View style={styles.quickItemView}>
             {['1', '2', '3'].map((item, index) => {
               return (<View key={index} style={styles.itemView}>
-                <Image source={{ uri: 'http://static.houbank.com/loan-shop/6873a700-1b9e-4b6d-afaf-ec3f7766d453.png' }} style={styles.itemImg} />
+                <FastImage source={{ uri: 'http://static.houbank.com/loan-shop/6873a700-1b9e-4b6d-afaf-ec3f7766d453.png' }} style={styles.itemImg} />
                 <Text style={styles.itemText}>贷款攻略</Text>
               </View>)
 
@@ -34,7 +35,7 @@ export default class My extends Component{
             <View style={styles.toolItemView}>
               {['1', '2', '3'].map((item, index) => {
                 return (<View key={index} style={styles.itemView}>
-                  <Image source={{ uri: 'http://static.houbank.com/loan-shop/6873a700-1b9e-4b6d-afaf-ec3f7766d453.png' }} style={styles.itemImg} />
+                  <FastImage source={{ uri: 'http://static.houbank.com/loan-shop/6873a700-1b9e-4b6d-afaf-ec3f7766d453.png' }} style={styles.itemImg} />
                   <Text style={styles.itemText}>贷款攻略</Text>
                 </View>)
 

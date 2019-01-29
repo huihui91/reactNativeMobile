@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button, View, Text, StyleSheet, TextInput, Image, FlatList, ScrollView,TouchableOpacity} from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 
+import FastImage from 'react-native-fast-image'
 import HomeChild  from './HomeChild/index.js'
 import SwiperView from '../component/SwiperView.js';
 import HotLoan from '../component/HotLoan.js';
@@ -33,7 +34,7 @@ class HomeScreen extends Component {
           <View style={styles.headerTop}>
             <Text style={styles.headerText}>厚钱袋</Text>
             <View style={styles.searchView}>
-              <Image
+              <FastImage
                 style={styles.searchImg}
                 source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
               />
@@ -47,7 +48,7 @@ class HomeScreen extends Component {
                   return (
                     <TouchableOpacity onPress={() => this._entryProduct(item)} key={index}>
                     <View  style={styles.flexCenter}>
-                      <Image source={{ uri: item.label_icon_url }} style={styles.quickImg} />
+                        <FastImage source={{ uri: item.label_icon_url }} style={styles.quickImg} />
                       <Text style={styles.textCenter}>
                         {item.label_name}
                     </Text>
@@ -66,7 +67,7 @@ class HomeScreen extends Component {
                 toolEntryList.map((item, index) => {
                   return (
                     <View style={styles.toolItem} key={index} >
-                      <Image source={{ uri: item.label_icon_url }} style={styles.toolImg} />
+                      <FastImage source={{ uri: item.label_icon_url }} style={styles.toolImg} />
                       <Text>{item.label_name}</Text>
                     </View>
 

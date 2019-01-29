@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Button, Image, ScrollView,StyleSheet} from 'react-native'
 import Http from '../api/index.js'
+import FastImage from 'react-native-fast-image'
 
 import SwiperIcons from '../component/SwiperIcons.js';
 import SwiperNews from '../component/SwiperNews.js';
@@ -46,7 +47,7 @@ export default class Loans extends Component {
               amountList.map((item,index)=>{
                 return(
                   <View style={styles.scrollItemView} key={index} >
-                    <Image source={{ uri:item.label_icon_url }} style={styles.scrollImg} />
+                    <FastImage source={{ uri:item.label_icon_url }} style={styles.scrollImg} />
                     <Text style={styles.scrollText}>{item.label_name}</Text>
                   </View>
                 )
