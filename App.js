@@ -35,7 +35,7 @@ const RootComponent = createSwitchNavigator({
     Sign
 
 },{
-    initialRouteName:'AppStack',
+    initialRouteName:'AuthLoading',
      headerMode: 'float'
 
 })

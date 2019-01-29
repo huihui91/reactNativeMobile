@@ -81,6 +81,60 @@ export default createAppContainer(RootComponent);
 ` react-native init 项目名称
 `
 
+
+###### 在utily 文件下封装了px转Dp方法
+`
+import { Dimensions } from 'react-native';
+
+// 58 app 只有竖屏模式，所以可以只获取一次 width
+const deviceWidthDp = Dimensions.get('window').width;
+// UI 默认给图是 375
+const uiWidthPx =375;
+
+function pxToDp(uiElementPx) {
+  return uiElementPx * deviceWidthDp / uiWidthPx;
+}
+
+export default pxToDp;
+`
+
+##### 使用 react navigation中的 NavigationActions 做登录校验，登录失败后跳转到登录页
+
+-- 在utily中的封装方法
+`
+import { NavigationActions } from 'react-navigation';
+
+let _navigator;
+
+function setTopLevelNavigator(navigatorRef) {
+  _navigator = navigatorRef;
+}
+
+function navigate(routeName, params) {
+  _navigator.dispatch(
+    NavigationActions.navigate({
+      routeName,
+      params,
+    })
+  );
+}
+
+// add other navigation functions that you need and export them
+
+export default {
+  navigate,
+  setTopLevelNavigator,
+};
+`
+
+--在App.js中将navigation注入到上面的js中
+`
+  <AppContainer ref={navigatorRef => {
+                NavigationService.setTopLevelNavigator(navigatorRef);
+            }}></AppContainer>
+            
+`
+
 ###### 创建js文件夹用于存放js文件
 `
  --api 用于存放axios的设置
