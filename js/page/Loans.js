@@ -10,17 +10,10 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 
 
-export default class News extends Component {
+export default class Loans extends Component {
   constructor(props) {
     super(props);
     this.state={
-      xloanData:[
-        {id:'1'},
-        {id:'2'},
-        {id:'3'},
-        {id:'4'},
-        {id:'5'},
-      ],
       hotProList:[],
       amountList:[]
     }

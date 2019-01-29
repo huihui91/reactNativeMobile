@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, View, Text, StyleSheet, TextInput, Image, FlatList, ScrollView,TouchableOpacity} from 'react-native';
-import { createStackNavigator, createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation';
 
 import HomeChild  from './HomeChild/index.js'
 import SwiperView from '../component/SwiperView.js';
@@ -10,16 +10,9 @@ import pxToDp from '../utily/pxToDp.js'; //px转dp
 
 import Http from '../api/index.js'
 class HomeScreen extends Component {
-  constructor(props){
+   constructor(props){
     super(props);
     this.state={
-      quickEntryData:[
-        {key:'a'},
-        {key:'b'},
-        {key:'c'},
-        {key:'d'},
-        {key:'e'},
-      ],
       hotProList:[],
       quickEntryList:[],
       toolEntryList:[],
@@ -33,7 +26,7 @@ class HomeScreen extends Component {
     this._swiperItem();
   }
   render() {
-    const { quickEntryData, hotProList, quickEntryList, toolEntryList, swiperListData}=this.state
+    const { hotProList, quickEntryList, toolEntryList, swiperListData}=this.state
     return (
       <View style={styles.container}>
         <View style={styles.containerChild1}>
@@ -235,7 +228,9 @@ const styles = StyleSheet.create({
 
 const RootStack = createStackNavigator(
   {
-    Home: HomeScreen,
+    Home: {
+      screen: HomeScreen
+    },
     HomeChild: HomeChild
   },
   {

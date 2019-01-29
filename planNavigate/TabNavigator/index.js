@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {View} from 'react-native';
-import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
+import { createBottomTabNavigator } from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 import My from '../../js/page/My.js';
@@ -20,7 +20,8 @@ const TabBottomNav = createBottomTabNavigator({
             name={focused ? 'md-home' : 'md-home'}
             size={pxToDp(24)}
               style={{ color: tintColor }} />
-          )
+          ),
+        headerTitle: '首页'
       }
     )
   },
@@ -81,5 +82,13 @@ const TabBottomNav = createBottomTabNavigator({
     }
 }
 )
+
+TabBottomNav.navigationOptions = ({ navigation, screenProps }) => {
+  console.log(JSON.stringify(navigation),'navigation')
+  console.log(JSON.stringify(screenProps),'screenProps')
+  return {
+    title: '首页'
+  }
+}
 
 export default TabBottomNav;
